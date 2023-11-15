@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Employee Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Employee List</h1>
+    <a href="/new">Create New Employee</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Company</th>
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listproducts}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.company}"></td>
+               <td>
+               <a th:href="@{/edit/{id}(id=${product.id})}">Edit</a>
+                <a th:href="@{/delete/{id}(id=${product.id})}">Delete</a>
+                </td>
+               
+               
+                
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>
